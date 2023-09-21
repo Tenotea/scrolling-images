@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  color-scheme: light dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+.flip_container {
+  perspective: 1000px;
+}
+
+.flip {
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  transform: rotateY(180deg);
+  transition: ease-out 0.6s;
+  transition-property: transform opacity;
+  opacity: 0;
+}
+
+.flip-anim {
+  // transition: transform 0.6s;
+  // transform-style: preserve-3d;
+  // transform: rotateY(0deg);
+  // transition: ease-out 0.6s;
+  // transition-property: transform opacity;
+  // opacity: 1;
+  animation: flip 0.6s ease-out 0s 1 normal forwards;
+
+  @keyframes flip {
+    from {
+      transform: rotateY(180deg);
+      opacity: 0.5;
+    }
+    to {
+      transform: rotate(0deg);
+      opacity: 1;
+    }
+  }
+}
