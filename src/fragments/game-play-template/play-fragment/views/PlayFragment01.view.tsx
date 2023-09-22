@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import {
   BalanceCoinIllustration,
-  BasePrizeCover,
-  GrandPrizeCover,
+  // BasePrizeCover,
+  // GrandPrizeCover,
   IconError,
 } from "../../../../assets/images";
 import BaseButton01View from "../../../../elements/buttons/base-button/views/BaseButton01.view";
@@ -114,20 +114,18 @@ export function PlayFragment01View(props: PlayFragment.Props) {
                         className="relative mx-auto w-[97%] mt-[1.5%] h-[97%]"
                         style={{ clipPath: "url(#faceClip)" }}
                       >
-                        {props.selectedPicture?.id === c.id ||
-                        !props.isGameplayStart ? (
-                          <img
-                            src={props.selectedPicture?.image || c.image}
-                            className="w-full h-full object-cover transform rotate-180 flip-anim"
-                          />
+                        {props.selectedPicture?.id === c.id ? (
+                          <div className="bg-[#19263D] dark:bg-[#000E27] h-full w-full flex items-center justify-center">
+                            <img
+                              src={props.selectedPicture.image}
+                              alt=""
+                              className=" w-3/4 mx-auto block h-auto"
+                            />
+                          </div>
                         ) : (
                           <img
-                            src={
-                              props.isGrandPrizeRound
-                                ? GrandPrizeCover
-                                : BasePrizeCover
-                            }
-                            className="w-full h-full object-cover"
+                            src={c.image}
+                            className="w-full h-full object-cover transform rotate-180 flip-anim"
                           />
                         )}
                       </div>

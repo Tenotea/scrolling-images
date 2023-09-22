@@ -102,16 +102,9 @@ export function usePlayFragment01Hook(params: PlayFragment.HookParams) {
 
   async function getPictureOptions() {
     const startIndex = getRandomInRange(0, scratchCardImages.length - 10);
-    const baseFaces = scratchCardImages.slice(startIndex, startIndex + 5);
+    const baseFaces = scratchCardImages.slice(startIndex, startIndex + 9);
 
-    setPictureOptions(
-      shuffle([
-        ...baseFaces,
-        { id: "try-again-1", image: SadFaceIllustration },
-        { id: "try-again-2", image: SadFaceIllustration },
-        { id: "try-again-3", image: SadFaceIllustration },
-      ])
-    );
+    setPictureOptions(shuffle([...baseFaces]));
   }
 
   async function shufflePictureOptions() {
@@ -153,15 +146,13 @@ export function usePlayFragment01Hook(params: PlayFragment.HookParams) {
   }
 
   function handlePictureSelect(image: PrizeModel) {
-    if (gamePlayOutcome.current?.status === "WON") {
-      if (image.id.includes("try-again")) {
-        const whitelist = pictureOptions.filter(
-          (p) => !p.id.includes("try-again")
-        );
-        const falseIndex = getRandomInRange(0, whitelist.length - 1);
-        setSelectedPicture({ ...image, image: whitelist[falseIndex].image });
-      }
-    }
+    setSelectedPicture({
+      ...image,
+      image:
+        gamePlayOutcome.current?.status === "WON"
+          ? gamePlayOutcome.current.prize.icon
+          : SadFaceIllustration,
+    });
   }
 
   async function handleProcessWinning() {
