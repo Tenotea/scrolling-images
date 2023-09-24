@@ -34,6 +34,7 @@ export function usePlayFragment01Hook(params: PlayFragment.HookParams) {
   );
 
   function toggleGrandPrizeMode() {
+    return;
     setIsGrandPrizeRound(
       getRandomInRange(
         0,
