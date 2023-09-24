@@ -19,12 +19,28 @@ import Marquee from "react-fast-marquee";
 export function PlayFragment01View(props: PlayFragment.Props) {
   const [parent] = useAutoAnimate({ duration: 200 });
   const [marqueeSpeed, setMarqueeSpeed] = useState(300);
+  // const decelerationRef = useRef<number | null>(null);
+
+  // function decelerateMarquee() {
+  //   let intervalCounter = 0;
+  //   decelerationRef.current = setInterval(() => {
+  //     console.log(intervalCounter);
+  //     if (intervalCounter >= 750) {
+  //       if (decelerationRef.current) {
+  //         clearInterval(decelerationRef.current);
+  //       }
+  //       return;
+  //     }
+  //     setMarqueeSpeed((m) => m - 1);
+  //     intervalCounter += 1;
+  //   }, 1);
+  // }
 
   useEffect(() => {
     if (props.isGamePlayReady) {
       setMarqueeSpeed(1000);
       setTimeout(() => {
-        setMarqueeSpeed(150);
+        setMarqueeSpeed(250);
       }, 2000);
     }
   }, [props.isGamePlayReady]);
@@ -90,6 +106,7 @@ export function PlayFragment01View(props: PlayFragment.Props) {
           <Marquee
             speed={marqueeSpeed}
             className="h-full"
+            style={{ scrollBehavior: "smooth" }}
             play={!props.selectedPicture}
           >
             <div className="h-full flex items-center gap-2">

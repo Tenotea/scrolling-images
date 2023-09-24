@@ -17,7 +17,7 @@ export default function FeedbackFragment01View(props: FeedBackFragment.Props) {
           <img src={SadMojiIllustration} alt="" />
         </div>
         <h5 className="font-bold text-2xl text-center text-black dark:text-white">
-          You did not match the housemate twice
+          You did not reveal any prize
         </h5>
         <p className="font-semibolld text-center text-black dark:text-white mt-2">
           Better luck next time, keep playing!
