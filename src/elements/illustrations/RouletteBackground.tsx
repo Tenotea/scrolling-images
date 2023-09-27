@@ -9,7 +9,7 @@ export default function RouletteBackground(props: { grandPrize?: boolean }) {
         viewBox="0 0 472 275"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="w-full h-full"
+        className="w-full h-full object-cover"
       >
         <g clipPath="url(#clip0_38_15833)">
           <rect width="472" height="275" fill="#F2D052" />

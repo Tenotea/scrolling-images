@@ -54,9 +54,9 @@ export function PlayFragment01View(props: PlayFragment.Props) {
       {/* Declare section for game title */}
       <div
         className="flex justify-center relative w-full"
-        style={{ height: props.isGrandPrizeRound ? 120 : 60 }}
+        style={{ height: 60 }}
       >
-        <ShuffleAndWinIllustration grandPrize={props.isGrandPrizeRound} />
+        <ShuffleAndWinIllustration grandPrize={false} />
       </div>
 
       {/* Game play sound is added here. */}
@@ -68,7 +68,7 @@ export function PlayFragment01View(props: PlayFragment.Props) {
       </div>
 
       {/* Wrapper for the game view. */}
-      <div className="my-[15px] relative transform-gpu scale-[0.9]">
+      <div className="mt-[35px] relative transform-gpu origin-top">
         <svg width="0" height="0">
           <defs>
             <clipPath id="faceClip" clipPathUnits="objectBoundingBox">
@@ -82,11 +82,11 @@ export function PlayFragment01View(props: PlayFragment.Props) {
             <RouletteBackground grandPrize={props.isGrandPrizeRound} />
           </div>
           {props.isOverlayInView && (
-            <div className="w-full h-full absolute inset-0 z-[2] rounded-lg bg-[rgba(245,245,245,0.9)] dark:bg-[rgba(3,14,37,0.8)] flex items-center justify-center px-10">
+            <div className="w-full h-full absolute inset-0 z-[2] rounded-lg bg-[rgba(245,245,245,0.9)] dark:bg-[rgba(3,14,37,0.8)] flex items-center justify-center px-3">
               <div className="w-full">
                 <h5 className="text-center text-sm font-medium text-black dark:text-white">
                   {props.isGrandPrizeRound
-                    ? "You are playing for the grand prize. You stand to win"
+                    ? "Your Chance to Win Big!"
                     : "You are playing for a Cash Prize of"}
 
                   <span className="block text-2xl font-extrabold text-[#0250C8] dark:text-[#FEDF7C] mt-1">
@@ -155,7 +155,7 @@ export function PlayFragment01View(props: PlayFragment.Props) {
           </Marquee>
         </div>
 
-        <div className="text-center h-[50px]">
+        <div className="text-center h-[50px] transform-gpu scale-[0.85]">
           <p className="text-xs mb-0.5 font-semibold dark:text-white text-black">
             Available Coins
           </p>
