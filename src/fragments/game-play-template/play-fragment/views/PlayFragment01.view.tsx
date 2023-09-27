@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+// { useEffect, useState }
 import {
   BalanceCoinIllustration,
   // BasePrizeCover,
@@ -18,7 +19,7 @@ import Marquee from "react-fast-marquee";
 
 export function PlayFragment01View(props: PlayFragment.Props) {
   const [parent] = useAutoAnimate({ duration: 200 });
-  const [marqueeSpeed, setMarqueeSpeed] = useState(300);
+  // const [marqueeSpeed, setMarqueeSpeed] = useState(300);
   // const decelerationRef = useRef<number | null>(null);
 
   // function decelerateMarquee() {
@@ -36,14 +37,14 @@ export function PlayFragment01View(props: PlayFragment.Props) {
   //   }, 1);
   // }
 
-  useEffect(() => {
-    if (props.isGamePlayReady) {
-      setMarqueeSpeed(1000);
-      setTimeout(() => {
-        setMarqueeSpeed(250);
-      }, 2000);
-    }
-  }, [props.isGamePlayReady]);
+  // useEffect(() => {
+  //   if (props.isGamePlayReady) {
+  //     setMarqueeSpeed(1000);
+  //     setTimeout(() => {
+  //       setMarqueeSpeed(150);
+  //     }, 2000);
+  //   }
+  // }, [props.isGamePlayReady]);
 
   return (
     <section
@@ -104,7 +105,7 @@ export function PlayFragment01View(props: PlayFragment.Props) {
           )}
 
           <Marquee
-            speed={marqueeSpeed}
+            speed={200}
             className="h-full"
             style={{ scrollBehavior: "smooth" }}
             play={!props.selectedPicture}
